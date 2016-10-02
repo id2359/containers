@@ -1,8 +1,7 @@
-see http://www.codeconscious.com/rebol/articles/introducing-rugby.html#Rugbyinaction
+Attempt to put Rugby request broker in a container and bake in user-defined
+service functions at build-time.
 
-for example of how to use rugby
+See http://www.codeconscious.com/rebol/articles/introducing-rugby.html#Rugbyinaction
+for example of how to use Rugby.
 
-Idea of this container is to build a container with specified (micro)services:
-
-
-
+NB. I downloaded rugby.r from http://www.rebol.org/view-script.r?script=rugby.r
