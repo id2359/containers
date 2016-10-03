@@ -12,15 +12,25 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN env --unset=DEBIAN_FRONTEND
+RUN mkdir /app
 
-RUN mkdir /rebol
-WORKDIR /rebol
+RUN mkdir /scratch
+WORKDIR /scratch
 RUN wget http://www.rebol.com/downloads/v278/rebol-core-278-4-3.tar.gz -O rebol.tgz && \
     tar xzvf rebol.tgz && \
-    mv /rebol/releases/rebol-core/rebol /usr/bin/rebol
-RUN mkdir /rugby
-WORKDIR /rugby
+    mv releases/rebol-core/rebol /app && \
+    rm -rf /scratch
+
+   
+WORKDIR /app
 COPY rugby.r .
+COPY functions.r .
+COPY main.r .
+
+EXPOSE 9023
+
+CMD ["/app/rebol -qs /app/main.r"]
+
 
 
 
