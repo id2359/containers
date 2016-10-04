@@ -1,6 +1,8 @@
 rebol []
-do  load-thru %rugby.r
+do load %rugby4.r
 
-do  %functions.r
+set [header script] do/next load/header  %functions.r
 
-serve exports
+do script
+
+serve header/exports
