@@ -23,16 +23,11 @@ RUN wget http://www.rebol.com/downloads/v278/rebol-core-278-4-3.tar.gz -O rebol.
 
    
 WORKDIR /app
-COPY rugby.r .
+COPY rugby4.r .
 COPY functions.r .
 COPY main.r .
 
-EXPOSE 9023
+EXPOSE 8001
 
-CMD ["/app/rebol -qs /app/main.r"]
-
-
-
-
-
+CMD ["/app/rebol", "-qs", "/app/main.r"]
 
